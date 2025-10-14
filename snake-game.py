@@ -111,7 +111,7 @@ def clamp_name_to_letters(name):
 class SnakeGame:
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption("snake")
+        pygame.display.set_caption("Snake")
 
         self.settings = load_settings()
         self.speed_level = self.settings.get("speed_level", 5)
