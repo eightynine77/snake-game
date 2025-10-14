@@ -111,7 +111,7 @@ def clamp_name_to_letters(name):
 class SnakeGame:
     def __init__(self):
         pygame.init()
-        pygame.display.set_caption("Snake")
+        pygame.display.set_caption("snake")
 
         self.settings = load_settings()
         self.speed_level = self.settings.get("speed_level", 5)
@@ -259,11 +259,13 @@ class SnakeGame:
     def render_menu(self):
         self.update_menu_labels()
         self.screen.fill(BACKGROUND_COLOR)
-        draw_text(self.screen, "Snake", 48, ACCENT_COLOR, self.screen_width // 2, 90, center=True, bold=True)
+        draw_text(self.screen, "simple snake", 48, ACCENT_COLOR, self.screen_width // 2, 90, center=True, bold=True)
         for i, option in enumerate(self.menu_options):
             color = MENU_SELECT_COLOR if i == self.menu_index else TEXT_COLOR
             draw_text(self.screen, option, 28, color, self.screen_width // 2, 180 + i * 40, center=True)
-        draw_text(self.screen, "Use Up/Down and Enter. Esc to quit.", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
+        draw_text(self.screen, "use [up] and [down] arrow keys to navigate.", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 60, center=True)
+
+        draw_text(self.screen, "use [Enter] key to select. use [esc] key to quit", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 30, center=True)
 
     def handle_speed_events(self, event):
         if event.type == pygame.KEYDOWN:
@@ -286,7 +288,9 @@ class SnakeGame:
         self.screen.fill(BACKGROUND_COLOR)
         draw_text(self.screen, "Adjust Snake Speed", 36, ACCENT_COLOR, self.screen_width // 2, 100, center=True, bold=True)
         draw_text(self.screen, f"Speed: {self.speed_level}", 32, TEXT_COLOR, self.screen_width // 2, 170, center=True)
-        draw_text(self.screen, "Left/Right to change (1–10), Enter/Esc to return", 20, DIM_TEXT_COLOR, self.screen_width // 2, 240, center=True)
+        draw_text(self.screen, "use [Left] and [Right] arrow keys to change snake speed (1-10).", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 60, center=True)
+
+        draw_text(self.screen, "press [Enter] or [Esc] key to return", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 30, center=True)
 
     def handle_highscores_events(self, event):
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
