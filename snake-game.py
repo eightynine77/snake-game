@@ -265,7 +265,7 @@ class SnakeGame:
             draw_text(self.screen, option, 28, color, self.screen_width // 2, 180 + i * 40, center=True)
         draw_text(self.screen, "use [up] and [down] arrow keys to navigate.", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 60, center=True)
 
-        draw_text(self.screen, "use [Enter] key to select. use [esc] key to quit", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 30, center=True)
+        draw_text(self.screen, "use [Enter] key to select. use [esc] to quit", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 30, center=True)
 
     def handle_speed_events(self, event):
         if event.type == pygame.KEYDOWN:
@@ -306,7 +306,7 @@ class SnakeGame:
             for i, (name, score) in enumerate(self.highscores, start=1):
                 draw_text(self.screen, f"{i}. {name} - {score}", 24, TEXT_COLOR, self.screen_width // 2, y, center=True)
                 y += 32
-        draw_text(self.screen, "Esc to return", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
+        draw_text(self.screen, "press [esc] key to return", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
 
     def handle_game_events(self, event):
         if event.type == pygame.KEYDOWN:
@@ -387,8 +387,9 @@ class SnakeGame:
         for i, option in enumerate(self.gameover_options):
             color = MENU_SELECT_COLOR if i == self.gameover_index else TEXT_COLOR
             draw_text(self.screen, option, 28, color, self.screen_width // 2, 250 + i * 40, center=True)
+        draw_text(self.screen, "press [up] and [down] arrow keys to navigate.", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 60, center=True)
 
-        draw_text(self.screen, "Up/Down to choose, Enter to confirm", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
+        draw_text(self.screen, "press [enter] to select", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 30, center=True)
 
     def handle_nameentry_events(self, event):
         if event.type == pygame.KEYDOWN:
@@ -415,7 +416,7 @@ class SnakeGame:
         draw_text(self.screen, f"(letters only, max {MAX_NAME_LENGTH})", 20, DIM_TEXT_COLOR, self.screen_width // 2, 180, center=True)
         display_name = self.entered_name if self.entered_name else "_"
         draw_text(self.screen, display_name, 32, TEXT_COLOR, self.screen_width // 2, 230, center=True)
-        draw_text(self.screen, "Enter to save, Esc to cancel", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
+        draw_text(self.screen, "press [enter] key to save, press [esc] to cancel", 18, DIM_TEXT_COLOR, self.screen_width // 2, self.screen_height - 40, center=True)
 
     def run(self):
         while True:
